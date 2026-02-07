@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [Header("Référence")]
     public InputActionAsset action;
     public Rigidbody2D rb;
+    public SpriteRenderer sprite;
 
     [Header("Settings")]
     public float speed = 150f;
@@ -33,5 +34,16 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = dir * speed * Time.fixedDeltaTime;
+    }
+
+    private void Update()
+    {
+        if (dir.x < 0)
+        {
+            sprite.flipX = true;
+        } else
+        {
+            sprite.flipX = false;
+        }
     }
 }
