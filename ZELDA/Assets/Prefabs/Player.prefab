@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1625347414, guid: f82d60e624f40fd4e9b6a03ea26b7e1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,14 +103,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029304239473582197}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_AngularDamping: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &4545399880002665532
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.8}
   m_Direction: 0
 --- !u!114 &6551991450515852341
 MonoBehaviour:
@@ -173,7 +173,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   action: {fileID: -944628639613478452, guid: 552c4db0c8f768c4fa612fbcddfedd25, type: 3}
   rb: {fileID: 4326804335381241492}
+  sprite: {fileID: 6275481082703376788}
+  fullHeart: {fileID: 965783097, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  emptyHeart: {fileID: 2067339244, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  halfHeart: {fileID: 105447173, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  lifeImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 150
+  maxLife: 6
+  currentLife: 0
 --- !u!1 &4063264029363756727
 GameObject:
   m_ObjectHideFlags: 0

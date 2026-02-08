@@ -1,6 +1,8 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,14 +11,25 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
 
+    [Header("Life UI")]
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+    public Sprite halfHeart;
+    public Image[] lifeImages;
+
     [Header("Settings")]
     public float speed = 150f;
-    
+    public int maxLife = 6;
+    public int currentLife;
+
     private Vector2 dir;
 
     void Start()
     {
-        var map = action.FindActionMap("PLayer");
+        currentLife = maxLife;
+        LifeUIUpdate();
+
+        var map = action.FindActionMap("Player");
         var move = map.FindAction("Move");
 
         move.started += OnMove;
@@ -46,4 +59,41 @@ public class Player : MonoBehaviour
             sprite.flipX = false;
         }
     }
+
+    private void LifeUIUpdate()
+    {
+        for (int i = 0; i < lifeImages.Length; i++)
+        {
+            if (currentLife >= (i + 1) * 2)
+            {
+                lifeImages[i].sprite = fullHeart;
+            }
+            else if (currentLife == (i * 2) + 1)
+            {
+                lifeImages[i].sprite = halfHeart;
+            }
+            else
+            {
+                lifeImages[i].sprite = emptyHeart;
+            }
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentLife -= amount;
+
+        LifeUIUpdate();
+
+        if (currentLife <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Dead");
+    }
+
 }
