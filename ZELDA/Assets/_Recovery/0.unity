@@ -518,20 +518,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 105447173, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
-      propertyPath: swordLeftPos.x
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: swordLeftPos.y
-      value: -0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
-      propertyPath: swordRightPos.x
-      value: 0.45
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: swordRightPos.y
-      value: -0.38
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: 'lifeImages.Array.data[0]'
