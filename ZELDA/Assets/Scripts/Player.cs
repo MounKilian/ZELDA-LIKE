@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,10 @@ public class Player : MonoBehaviour
     public Vector3 swordRightPos = new Vector3(0.3f, -0.28f, 0); 
     public Vector3 swordLeftPos = new Vector3(-0.3f, -0.28f, 0); 
 
+    public Bow bow;
+    public Vector3 bowRightPos = new Vector3(0.57f, -0.11f, 0);
+    public Vector3 bowLeftPos = new Vector3(-0.57f, -0.11f, 0);
+
     [Header("Life UI")]
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -28,7 +33,8 @@ public class Player : MonoBehaviour
     public int maxLife = 6;
     public int currentLife;
 
-    private Vector2 dir;
+    public Vector2 dir;
+    public Vector2 lastDir;
 
     void Start()
     {
@@ -38,6 +44,7 @@ public class Player : MonoBehaviour
         var map = action.FindActionMap("Player");
         var move = map.FindAction("Move");
         var attackSword = map.FindAction("Attack");
+        var attackBow = map.FindAction("AttackProjectile");
 
         move.started += OnMove;
         move.performed += OnMove;
@@ -45,6 +52,9 @@ public class Player : MonoBehaviour
 
         attackSword.started += OnAttackSword;
         attackSword.canceled += OnAttackSword;
+
+        attackBow.started += OnAttackBow;
+        attackBow.canceled += OnAttackBow;
 
         action.Enable();
         sword.gameObject.SetActive(false);
@@ -57,7 +67,18 @@ public class Player : MonoBehaviour
 
     private void OnAttackSword(InputAction.CallbackContext context)
     {
-        sword.gameObject.SetActive(context.ReadValueAsButton());
+        if (!bow.gameObject.activeSelf)
+        {
+            sword.gameObject.SetActive(context.ReadValueAsButton());
+        }
+    }
+
+    private void OnAttackBow(InputAction.CallbackContext context)
+    {
+        if (!sword.gameObject.activeSelf)
+        {
+            bow.gameObject.SetActive(context.ReadValueAsButton());
+        }
     }
 
     void FixedUpdate()
@@ -69,16 +90,25 @@ public class Player : MonoBehaviour
     {
         if (dir.x != 0)
         {
+            lastDir = dir;
             if (dir.x < 0)
             {
                 sword.transform.localPosition = swordLeftPos;
                 sword.transform.localRotation = Quaternion.Euler(0, 0, 90);
+
+                bow.transform.localPosition = bowLeftPos;
+                bow.transform.localRotation = Quaternion.Euler(0, 0, 180);
+
                 sprite.flipX = true;
             }
             else
             {
                 sword.transform.localPosition = swordRightPos;
                 sword.transform.localRotation = Quaternion.Euler(0, 0, -90);
+
+                bow.transform.localPosition = bowRightPos;
+                bow.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
                 sprite.flipX = false;
             }
         }
