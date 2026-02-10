@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c889d2984ed047839e4fa35e6ad6d, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ennemy
-  health: 3
+  health: 2
   speed: 50
   dammage: 1
   attackCooldown: 1

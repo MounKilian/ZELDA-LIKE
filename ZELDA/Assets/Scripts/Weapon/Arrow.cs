@@ -34,7 +34,10 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Arrow hit");
+        if (collision.gameObject.CompareTag("Ennemy"))
+        {
+            collision.gameObject.GetComponent<Ennemy>().TakeDamage(dammage);
+        }
         Destroy(gameObject);
     }
 }

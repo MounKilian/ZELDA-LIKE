@@ -11,6 +11,9 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Sword hit");
+        if (collision.gameObject.CompareTag("Ennemy"))
+        {
+            collision.gameObject.GetComponent<Ennemy>().TakeDamage(dammage);
+        }
     }
 }

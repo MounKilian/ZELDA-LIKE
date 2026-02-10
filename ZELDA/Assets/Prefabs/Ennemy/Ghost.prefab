@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8231228179809889452}
   m_Layer: 8
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0}
   detectionRange: 5
   walk: 0
+  attackTimer: 0
 --- !u!50 &1582217867514875586
 Rigidbody2D:
   serializedVersion: 5
