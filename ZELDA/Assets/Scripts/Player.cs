@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     public Vector3 bowRightPos = new Vector3(0.57f, -0.11f, 0);
     public Vector3 bowLeftPos = new Vector3(-0.57f, -0.11f, 0);
 
+    public float attackCooldown = 1f;
+    public float attackTimer = 0f;
+
     [Header("Life UI")]
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -75,9 +78,17 @@ public class Player : MonoBehaviour
 
     private void OnAttackBow(InputAction.CallbackContext context)
     {
-        if (!sword.gameObject.activeSelf)
+        if (context.started && attackTimer >= attackCooldown)
         {
-            bow.gameObject.SetActive(context.ReadValueAsButton());
+            if (!sword.gameObject.activeSelf)
+            {
+                attackTimer = 0f;
+                bow.gameObject.SetActive(true);
+            }
+        }
+        if (context.canceled)
+        {
+            bow.gameObject.SetActive(false);
         }
     }
 
@@ -88,6 +99,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        attackTimer += Time.deltaTime;
+
         if (dir.x != 0)
         {
             lastDir = dir;

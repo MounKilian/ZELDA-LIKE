@@ -3,10 +3,14 @@ using UnityEngine.U2D;
 
 public class Arrow : MonoBehaviour
 {
-    public float speed = 400f;
+    [Header("Référence")]
     public Rigidbody2D rb;
-    public Vector2 dir;
     public Player player;
+
+    [Header("Settings")]
+    public int dammage = 1;
+    public float speed = 400f;
+    public Vector2 dir;
 
     private void OnEnable()
     {
@@ -31,5 +35,6 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Arrow hit");
+        Destroy(gameObject);
     }
 }
