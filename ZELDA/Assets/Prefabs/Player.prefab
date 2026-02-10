@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8759284758129803987}
   - component: {fileID: 7154397519866604338}
   - component: {fileID: 5608405492480105367}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4326804335381241492}
   - component: {fileID: 4545399880002665532}
   - component: {fileID: 6551991450515852341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,6 +335,8 @@ MonoBehaviour:
   bow: {fileID: 7689075410075543506}
   bowRightPos: {x: 0.57, y: -0.11, z: 0}
   bowLeftPos: {x: -0.57, y: -0.11, z: 0}
+  attackCooldown: 1
+  attackTimer: 0
   fullHeart: {fileID: 965783097, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
   emptyHeart: {fileID: 2067339244, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
   halfHeart: {fileID: 105447173, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
@@ -345,6 +347,8 @@ MonoBehaviour:
   speed: 150
   maxLife: 6
   currentLife: 0
+  dir: {x: 0, y: 0}
+  lastDir: {x: 0, y: 0}
 --- !u!1 &4063264029363756727
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +361,7 @@ GameObject:
   - component: {fileID: 6622403168926650805}
   - component: {fileID: 6936085471923374194}
   - component: {fileID: 4231466227001591814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -493,7 +497,7 @@ GameObject:
   - component: {fileID: 4846301957632551705}
   - component: {fileID: 2064350698267277143}
   - component: {fileID: 7689075410075543506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,3 +590,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432d583129cd3c8419d4bef4ace34aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bow
+  arrow: {fileID: 0}
