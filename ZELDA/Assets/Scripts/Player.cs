@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     [Header("Settings")]
     public float speed = 150f;
     public int maxLife = 6;
-    public int currentLife;
+    public float currentLife;
 
     public Vector2 dir;
     public Vector2 lastDir;

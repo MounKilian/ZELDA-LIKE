@@ -12,11 +12,15 @@ public class Ennemy : MonoBehaviour
 
     [Header("Settings")]
     public Vector2 dir;
+
     private float currentHealth;
+
     public float detectionRange = 5f;
     public int walk = 0;
     private bool canFollow = false;
     private bool isTouchingPlayer = false;
+
+    public float attackTimer = 0f;
 
     void Start()
     {
@@ -52,6 +56,14 @@ public class Ennemy : MonoBehaviour
         if (isTouchingPlayer)
         {
             rb.linearVelocity = Vector2.zero;
+            attackTimer += Time.fixedDeltaTime;
+
+            if (attackTimer >= stats.attackCooldown)
+            {
+                player.gameObject.GetComponent<Player>().TakeDamage(stats.dammage);
+                attackTimer = 0;
+            }
+
             return;
         }
 
@@ -82,7 +94,6 @@ public class Ennemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isTouchingPlayer = true;
-            Debug.Log("Ghost hit");
         }
     }
 

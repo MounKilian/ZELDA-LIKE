@@ -6,5 +6,6 @@ public class SO_Ennemy : ScriptableObject
 {
     public float health;
     public float speed;
-    public float dammage;
+    public int dammage;
+    public float attackCooldown;
 }
