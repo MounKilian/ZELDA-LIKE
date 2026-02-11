@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Inventory Settings")]
+    public int healthPotionCount = 0;
+    public int bigHealthPotionCount = 0;
+
+    public void AddHealthPotion()
     {
-        
+        healthPotionCount++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddBigHealthPotion()
     {
-        
+        bigHealthPotionCount++;
+    }
+
+    public void SubstractHealthPotion()
+    {
+        healthPotionCount--;
+    }
+
+    public void SubstractBigHealthPotion()
+    {
+        bigHealthPotionCount--;
     }
 }

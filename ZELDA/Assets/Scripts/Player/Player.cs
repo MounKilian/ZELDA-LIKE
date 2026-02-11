@@ -16,9 +16,8 @@ public class Player : MonoBehaviour
     [Header("Health Référence")]
     public Health health;
 
-    [Header("Inventory Settings")]
-    public int healthPotionCount = 0;
-    public int bigHealthPotionCount = 0;
+    [Header("Inventory Référence")]
+    public Inventory inventory;
 
     [Header("Weapon Settings")]
     public Sword sword;
@@ -40,6 +39,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        health = GetComponent<Health>();
+        inventory = GetComponent<Inventory>();
+
         var map = action.FindActionMap("Player");
         var move = map.FindAction("Move");
         var attackSword = map.FindAction("Attack");
@@ -138,19 +140,19 @@ public class Player : MonoBehaviour
 
     public void OnUseHealthPotion(InputAction.CallbackContext context)
     {
-        if (healthPotionCount > 0 && health.currentLife < 6)
+        if (inventory.healthPotionCount > 0 && health.currentLife < 6)
         {
             health.Heal(1);
-            healthPotionCount--;
+            inventory.SubstractHealthPotion();
         }
     }
 
     public void OnUseBigHealthPotion(InputAction.CallbackContext context)
     {
-        if (bigHealthPotionCount > 0 && health.currentLife < 6)
+        if (inventory.bigHealthPotionCount > 0 && health.currentLife < 6)
         {
             health.Heal(2);
-            bigHealthPotionCount--;
+            inventory.SubstractBigHealthPotion();
         }
     }
 }

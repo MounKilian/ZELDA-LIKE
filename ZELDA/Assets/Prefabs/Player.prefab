@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 4545399880002665532}
   - component: {fileID: 6551991450515852341}
   - component: {fileID: 4034976818025703535}
+  - component: {fileID: -217802661512712429}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -331,8 +332,7 @@ MonoBehaviour:
   rb: {fileID: 4326804335381241492}
   sprite: {fileID: 6275481082703376788}
   health: {fileID: 0}
-  healthPotionCount: 0
-  bigHealthPotionCount: 0
+  inventory: {fileID: 0}
   sword: {fileID: 5608405492480105367}
   swordRightPos: {x: 0.3, y: -0.28, z: 0}
   swordLeftPos: {x: -0.3, y: -0.28, z: 0}
@@ -358,6 +358,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxLife: 0
   currentLife: 0
+--- !u!114 &-217802661512712429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029304239473582197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07ad036752f2c547956aecc8bdd950f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  healthPotionCount: 0
+  bigHealthPotionCount: 0
 --- !u!1 &4063264029363756727
 GameObject:
   m_ObjectHideFlags: 0
