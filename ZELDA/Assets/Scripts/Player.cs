@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
 
+    [Header("Inventory Settings")]
+    public int healthPotionCount = 0;
+    public int bigHealthPotionCount = 0;
+
     [Header("Weapon Settings")]
     public Sword sword;
     public Vector3 swordRightPos = new Vector3(0.3f, -0.28f, 0); 
@@ -48,6 +52,8 @@ public class Player : MonoBehaviour
         var move = map.FindAction("Move");
         var attackSword = map.FindAction("Attack");
         var attackBow = map.FindAction("AttackProjectile");
+        var healthPotion = map.FindAction("UseHealthPotion");
+        var bigHealthPotion = map.FindAction("UseBigHealthPotion");
 
         move.started += OnMove;
         move.performed += OnMove;
@@ -58,6 +64,12 @@ public class Player : MonoBehaviour
 
         attackBow.started += OnAttackBow;
         attackBow.canceled += OnAttackBow;
+
+        healthPotion.started += OnUseHealthPotion;
+        healthPotion.canceled += OnUseHealthPotion;
+
+        bigHealthPotion.started += OnUseBigHealthPotion;
+        bigHealthPotion.canceled += OnUseBigHealthPotion;
 
         action.Enable();
         sword.gameObject.SetActive(false);
@@ -157,6 +169,38 @@ public class Player : MonoBehaviour
             Die();
         }
     }
+
+    public void Heal(int amount)
+    {
+        currentLife += amount;
+
+        if (currentLife > maxLife)
+        {
+            currentLife = maxLife;
+        }
+
+        LifeUIUpdate();
+    }
+
+    public void OnUseHealthPotion(InputAction.CallbackContext context)
+    {
+        if (healthPotionCount > 0 && currentLife < 6)
+        {
+            Heal(1);
+            healthPotionCount--;
+        }
+    }
+
+    public void OnUseBigHealthPotion(InputAction.CallbackContext context)
+    {
+        if (bigHealthPotionCount > 0 && currentLife < 6)
+        {
+            Heal(2);
+            bigHealthPotionCount--;
+        }
+    }
+
+    public 
 
     void Die()
     {
