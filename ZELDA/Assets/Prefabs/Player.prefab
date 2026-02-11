@@ -330,6 +330,7 @@ MonoBehaviour:
   action: {fileID: -944628639613478452, guid: 552c4db0c8f768c4fa612fbcddfedd25, type: 3}
   rb: {fileID: 4326804335381241492}
   sprite: {fileID: 6275481082703376788}
+  health: {fileID: 0}
   healthPotionCount: 0
   bigHealthPotionCount: 0
   sword: {fileID: 5608405492480105367}
@@ -339,17 +340,8 @@ MonoBehaviour:
   bowRightPos: {x: 0.57, y: -0.11, z: 0}
   bowLeftPos: {x: -0.57, y: -0.11, z: 0}
   attackCooldown: 1
-  attackTimer: 0
-  fullHeart: {fileID: 965783097, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
-  emptyHeart: {fileID: 2067339244, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
-  halfHeart: {fileID: 105447173, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
-  lifeImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  attackTimer: 1
   speed: 150
-  maxLife: 6
-  currentLife: 0
   dir: {x: 0, y: 0}
   lastDir: {x: 0, y: 0}
 --- !u!114 &4034976818025703535
@@ -364,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7076fdb04a0547b45acb59baee9e4e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxLife: 0
+  currentLife: 0
 --- !u!1 &4063264029363756727
 GameObject:
   m_ObjectHideFlags: 0

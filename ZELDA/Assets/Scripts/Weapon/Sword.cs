@@ -13,7 +13,7 @@ public class Sword : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ennemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().TakeDamage(dammage);
+            collision.gameObject.GetComponent<Health>().TakeDamage(dammage);
         }
     }
 }

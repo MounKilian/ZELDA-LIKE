@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4680254496509927863}
   - component: {fileID: 1688889503677928809}
   - component: {fileID: 8061794604356812968}
+  - component: {fileID: -3891415915953509972}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Ennemy
@@ -114,7 +115,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0}
   detectionRange: 5
   walk: 0
-  attackTimer: 0
+  attackTimer: 2
 --- !u!50 &4680254496509927863
 Rigidbody2D:
   serializedVersion: 5
@@ -234,3 +235,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7685423, y: 0.93690836}
   m_EdgeRadius: 0
+--- !u!114 &-3891415915953509972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887642782205498476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7076fdb04a0547b45acb59baee9e4e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxLife: 0
+  currentLife: 0

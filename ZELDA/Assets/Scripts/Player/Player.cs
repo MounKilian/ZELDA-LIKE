@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     public Vector3 bowLeftPos = new Vector3(-0.57f, -0.11f, 0);
 
     public float attackCooldown = 1f;
-    public float attackTimer = 0f;
+    public float attackTimer = 1f;
 
     [Header("Settings")]
     public float speed = 150f;
@@ -103,6 +103,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        SpriteDir();
+    }
+
+    public void SpriteDir()
+    {
         attackTimer += Time.deltaTime;
 
         if (dir.x != 0)
@@ -133,24 +138,18 @@ public class Player : MonoBehaviour
 
     public void OnUseHealthPotion(InputAction.CallbackContext context)
     {
-        UseHeal(1);
+        if (healthPotionCount > 0 && health.currentLife < 6)
+        {
+            health.Heal(1);
+            healthPotionCount--;
+        }
     }
 
     public void OnUseBigHealthPotion(InputAction.CallbackContext context)
     {
-        UseHeal(2);
-    }
-
-    public void UseHeal(int ammount)
-    {
-        if (healthPotionCount > 0 && health.currentLife < 6)
+        if (bigHealthPotionCount > 0 && health.currentLife < 6)
         {
-            health.Heal(ammount);
-            healthPotionCount--;
-        }
-        else if (bigHealthPotionCount > 0 && health.currentLife < 6)
-        {
-            health.Heal(ammount);
+            health.Heal(2);
             bigHealthPotionCount--;
         }
     }

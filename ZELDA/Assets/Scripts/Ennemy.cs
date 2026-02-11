@@ -4,29 +4,33 @@ using UnityEngine.U2D;
 
 public class Ennemy : MonoBehaviour
 {
-    [Header("Référence")]
+    [Header("Ennemy Référence")]
     public SO_Ennemy stats;
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
+
+    [Header("Player Référence")]
     public GameObject player;
+
+    [Header("Health Référence")]
+    public Health health;
 
     [Header("Settings")]
     public Vector2 dir;
-
-    private float currentHealth;
 
     public float detectionRange = 5f;
     public int walk = 0;
     private bool canFollow = false;
     private bool isTouchingPlayer = false;
 
-    public float attackTimer = 0f;
+    public float attackTimer = 2f;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        health = GetComponent<Health>();
         dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        currentHealth = stats.health;
+        health.currentLife = stats.health;
     }
 
     void FixedUpdate()
@@ -35,6 +39,11 @@ public class Ennemy : MonoBehaviour
     }
 
     private void Update()
+    {
+        SpriteDir();
+    }
+
+    public void SpriteDir()
     {
         if (dir.x != 0)
         {
@@ -103,20 +112,5 @@ public class Ennemy : MonoBehaviour
         {
             isTouchingPlayer = false;
         }
-    }
-
-    public void TakeDamage(int amount)
-    {
-        currentHealth -= amount;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }
