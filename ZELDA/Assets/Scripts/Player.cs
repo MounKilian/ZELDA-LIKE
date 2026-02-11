@@ -8,10 +8,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [Header("Référence")]
+    [Header("Player Référence")]
     public InputActionAsset action;
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
+
+    [Header("Health Référence")]
+    public Health health;
 
     [Header("Inventory Settings")]
     public int healthPotionCount = 0;
@@ -29,25 +32,14 @@ public class Player : MonoBehaviour
     public float attackCooldown = 1f;
     public float attackTimer = 0f;
 
-    [Header("Life UI")]
-    public Sprite fullHeart;
-    public Sprite emptyHeart;
-    public Sprite halfHeart;
-    public Image[] lifeImages;
-
     [Header("Settings")]
     public float speed = 150f;
-    public int maxLife = 6;
-    public float currentLife;
 
     public Vector2 dir;
     public Vector2 lastDir;
 
     void Start()
     {
-        currentLife = maxLife;
-        LifeUIUpdate();
-
         var map = action.FindActionMap("Player");
         var move = map.FindAction("Move");
         var attackSword = map.FindAction("Attack");
@@ -139,72 +131,27 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void LifeUIUpdate()
-    {
-        for (int i = 0; i < lifeImages.Length; i++)
-        {
-            if (currentLife >= (i + 1) * 2)
-            {
-                lifeImages[i].sprite = fullHeart;
-            }
-            else if (currentLife == (i * 2) + 1)
-            {
-                lifeImages[i].sprite = halfHeart;
-            }
-            else
-            {
-                lifeImages[i].sprite = emptyHeart;
-            }
-        }
-    }
-
-    public void TakeDamage(int amount)
-    {
-        currentLife -= amount;
-
-        LifeUIUpdate();
-
-        if (currentLife <= 0)
-        {
-            Die();
-        }
-    }
-
-    public void Heal(int amount)
-    {
-        currentLife += amount;
-
-        if (currentLife > maxLife)
-        {
-            currentLife = maxLife;
-        }
-
-        LifeUIUpdate();
-    }
-
     public void OnUseHealthPotion(InputAction.CallbackContext context)
     {
-        if (healthPotionCount > 0 && currentLife < 6)
-        {
-            Heal(1);
-            healthPotionCount--;
-        }
+        UseHeal(1);
     }
 
     public void OnUseBigHealthPotion(InputAction.CallbackContext context)
     {
-        if (bigHealthPotionCount > 0 && currentLife < 6)
+        UseHeal(2);
+    }
+
+    public void UseHeal(int ammount)
+    {
+        if (healthPotionCount > 0 && health.currentLife < 6)
         {
-            Heal(2);
+            health.Heal(ammount);
+            healthPotionCount--;
+        }
+        else if (bigHealthPotionCount > 0 && health.currentLife < 6)
+        {
+            health.Heal(ammount);
             bigHealthPotionCount--;
         }
     }
-
-    public 
-
-    void Die()
-    {
-        Debug.Log("Dead");
-    }
-
 }

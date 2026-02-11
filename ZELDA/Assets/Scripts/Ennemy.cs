@@ -60,7 +60,7 @@ public class Ennemy : MonoBehaviour
 
             if (attackTimer >= stats.attackCooldown)
             {
-                player.gameObject.GetComponent<Player>().TakeDamage(stats.dammage);
+                player.gameObject.GetComponent<Health>().TakeDamage(stats.dammage);
                 attackTimer = 0;
             }
 

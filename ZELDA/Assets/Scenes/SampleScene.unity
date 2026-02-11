@@ -585,6 +585,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4034976818025703535, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
+      propertyPath: maxLife
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034976818025703535, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
+      propertyPath: currentLife
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4063264029363756727, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -613,6 +621,10 @@ PrefabInstance:
       propertyPath: sword
       value: 
       objectReference: {fileID: 581565590}
+    - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 581565592}
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: halfHeart
       value: 
@@ -733,6 +745,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d65fdab8f38b147b56fad8ff35aa7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+--- !u!114 &581565592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4034976818025703535, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
+  m_PrefabInstance: {fileID: 581565588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7076fdb04a0547b45acb59baee9e4e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!4 &595398564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6764403491522875686, guid: ad3011b0cf5cb1f4387a2b1d6fec7e89, type: 3}
@@ -871,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 844735308}
   m_Layer: 0
-  m_Name: ==== ENTITY ====
+  m_Name: ==== ENTITIES ====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5155,6 +5178,7 @@ GameObject:
   - component: {fileID: 1110356328}
   - component: {fileID: 1110356327}
   - component: {fileID: 1110356326}
+  - component: {fileID: 1110356329}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5247,6 +5271,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1110356329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110356324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fe9671977618a45829101126f0bd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  health: {fileID: 581565592}
+  fullHeart: {fileID: 965783097, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  emptyHeart: {fileID: 105447173, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  halfHeart: {fileID: 2067339244, guid: b64dfa38b988e154fabf6d7660f40eb6, type: 3}
+  lifeImages:
+  - {fileID: 2140414465}
+  - {fileID: 2047559040}
+  - {fileID: 1338407273}
 --- !u!1001 &1240639193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5480,7 +5524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1677776755}
   m_Layer: 0
-  m_Name: ==== MAP ====
+  m_Name: ==== WORLD ====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
