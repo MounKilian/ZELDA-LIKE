@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0144d8799e802ce4ca316c28ac0223c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Arrow
-  speed: 10
   rb: {fileID: 6468005517799281853}
-  dir: {x: 0, y: 0}
   player: {fileID: 0}
+  dammage: 1
+  speed: 400
+  dir: {x: 0, y: 0}

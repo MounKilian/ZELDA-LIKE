@@ -599,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4326804335381241492, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: m_Mass
-      value: 0.40274337
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 4326804335381241492, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: m_Constraints
@@ -624,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: health
       value: 
-      objectReference: {fileID: 581565592}
+      objectReference: {fileID: 0}
     - target: {fileID: 6551991450515852341, guid: b71d7eb6c9f492b4fb40ff790399df80, type: 3}
       propertyPath: halfHeart
       value: 
