@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     [Header("Health Référence")]
     public Health health;
+    public float healCooldown = 1f;
+    public float healTimer = 1f;
 
     [Header("Inventory Référence")]
     public Inventory inventory;
@@ -106,12 +108,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        SpriteDir();
-    }
+        SpriteDir();    }
 
     public void SpriteDir()
     {
         attackTimer += Time.deltaTime;
+        healTimer += Time.deltaTime;
 
         if (dir.x != 0)
         {
@@ -141,19 +143,27 @@ public class Player : MonoBehaviour
 
     public void OnUseHealthPotion(InputAction.CallbackContext context)
     {
-        if (inventory.healthPotionCount > 0 && health.currentLife < 6)
+        if (healTimer >= healCooldown)
         {
-            health.Heal(1);
-            inventory.SubstractHealthPotion();
+            if (inventory.healthPotionCount > 0 && health.currentLife < 6)
+            {
+                healTimer = 0f;
+                health.Heal(1);
+                inventory.SubstractHealthPotion();
+            }
         }
     }
 
     public void OnUseBigHealthPotion(InputAction.CallbackContext context)
     {
-        if (inventory.bigHealthPotionCount > 0 && health.currentLife < 6)
+        if (healTimer >= healCooldown)
         {
-            health.Heal(2);
-            inventory.SubstractBigHealthPotion();
+             if (inventory.bigHealthPotionCount > 0 && health.currentLife < 6)
+            {
+                healTimer = 0f;
+                health.Heal(2);
+                inventory.SubstractBigHealthPotion();
+            }
         }
     }
 }
