@@ -1,13 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+    [Header("Player Référence")]
+    public Player player;
+
     [Header("Settings")]
     public int maxLife;
     public int currentLife;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentLife = maxLife;
     }
 
@@ -33,6 +38,19 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        if (gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("Dead");
+        }
+        else
+        {
+            player.killCount++;
+            Destroy(gameObject);
+
+            if (player.killCount >= 6)
+            {
+                SceneManager.LoadScene("Win");
+            }
+        }
     }
 }

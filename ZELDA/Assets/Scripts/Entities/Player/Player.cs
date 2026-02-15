@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     [Header("Settings")]
     public float speed = 150f;
+    public int killCount = 0;
 
     public Vector2 dir;
     public Vector2 lastDir;
