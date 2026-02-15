@@ -35,12 +35,24 @@ Using bow have 1 second of cooldown.
 ## Ennemies
 There are two types of enemies:
   - Golem: More life but less dammage.
-  - Ghost: Less life but more dammage. Can fly and doesnt have colliders.
+  <br>
+  <img src="ZELDA/Assets/Visuals/UI/Golem.png" width="100">
+  <br>
+  - Ghost: Less life but more dammage. Can fly and doesnt have colliders.  
+  <br>
+  <img src="ZELDA/Assets/Visuals/UI/Ghost.png" width="100">
+  <br>
 
 ## Objects
 There are two types of usable object you can collect:
   - Health Potion: Restore 1/2 heart.
+  <br>
+  <img src="ZELDA/Assets/Visuals/UI/HealthPotion.png" width="100">
+  <br>
   - Big Health Potion: Restore 1 heart.
+  <br>
+  <img src="ZELDA/Assets/Visuals/UI/BigHealthPotion.png" width="100">
+  <br>
 Using heal have 2 seconds of cooldown.
 
 ## Goal 
