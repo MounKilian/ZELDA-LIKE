@@ -112,6 +112,7 @@ MonoBehaviour:
   rb: {fileID: 4680254496509927863}
   sprite: {fileID: 4008468907207896215}
   player: {fileID: 0}
+  health: {fileID: 0}
   dir: {x: 0, y: 0}
   detectionRange: 5
   walk: 0
@@ -247,5 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7076fdb04a0547b45acb59baee9e4e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxLife: 0
+  maxLife: 6
   currentLife: 0

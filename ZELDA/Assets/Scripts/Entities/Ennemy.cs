@@ -30,6 +30,7 @@ public class Ennemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         health = GetComponent<Health>();
         dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        health.maxLife = stats.health;
         health.currentLife = stats.health;
     }
 
@@ -41,6 +42,7 @@ public class Ennemy : MonoBehaviour
     private void Update()
     {
         SpriteDir();
+        Debug.Log("Health du SO : " + stats.health);
     }
 
     public void SpriteDir()

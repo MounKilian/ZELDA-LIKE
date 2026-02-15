@@ -4,7 +4,7 @@ public class Health : MonoBehaviour
 {
     [Header("Settings")]
     public int maxLife;
-    public float currentLife;
+    public int currentLife;
 
     private void Start()
     {

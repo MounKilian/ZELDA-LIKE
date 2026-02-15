@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c889d2984ed047839e4fa35e6ad6d, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: Assembly-CSharp::SO_Ennemy
-  health: 9
+  health: 6
   speed: 35
   dammage: 2
   attackCooldown: 1
